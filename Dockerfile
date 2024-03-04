@@ -14,7 +14,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY docker-compose/script/host.sh  /bin/host.sh
 RUN chmod +x /bin/host.sh
 # ENTRYPOINT ["/bin/host.sh"]
-CMD ["/bin/host.sh"]
+# CMD ["/bin/host.sh"]
 
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
