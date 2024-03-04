@@ -15,14 +15,12 @@ class TenantSeeder extends Seeder
     public function run(): void
     {
 
-        // Create tenants
         $tenant1 = Tenant::create(['id' => 'foo']);
-        $tenant1->domains()->create(['domain' => 'foo.localhost']);
+        $tenant1->domains()->create(['domain' => 'foo.sample.test']);
 
         $tenant2 = Tenant::create(['id' => 'bar']);
-        $tenant2->domains()->create(['domain' => 'bar.localhost']);
+        $tenant2->domains()->create(['domain' => 'bar.sample.test']);
 
-        // Create users for each tenant
         Tenant::all()->each(function ($tenant) {
             $tenant->run(function () {
                 User::factory()->create();

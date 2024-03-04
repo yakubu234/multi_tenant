@@ -43,7 +43,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
         }
     }
-    
+
     protected function mapApiRoutes()
     {
         foreach ($this->centralDomains() as $domain) {
@@ -54,9 +54,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
         }
     }
-    
+
     protected function centralDomains(): array
     {
         return config('tenancy.central_domains');
     }
-    }
+
+}

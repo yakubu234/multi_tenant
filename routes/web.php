@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.register');
 });
+
+
+Route::get('/super-admin', function () {
+    return view('auth.login');
+});
+
+Route::get('/thank-you', [RegisterController::class, 'appreciation']);
+Route::post('/create', [RegisterController::class, 'createUser'])->name("register-name");
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
